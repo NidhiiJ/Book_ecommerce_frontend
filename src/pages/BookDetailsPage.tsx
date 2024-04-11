@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
-// import books from "../components/Books";
+import { useContext, useEffect, useState } from "react";
 import Book from "../Interfaces/BookInterface";
 import { Link, useParams } from "react-router-dom";
 import Rating from "../components/Rating";
 import BookCard from "../components/BookCard";
+import BooksContextType from "../Interfaces/BooksContextType";
+import { BooksContext } from "../context/BooksContext";
 
-interface BooksDetailsProps{
-  books:Book[]|[]
-}
-const BookDetails:React.FC<BooksDetailsProps> = ({books}) => {
+const BookDetails = () => {
+  const{books} = useContext(BooksContext) as BooksContextType
   const [showFullDescription, setShowFullDescription] = useState(false);
   // for description
   const [showLess, setShowLess] = useState(false);

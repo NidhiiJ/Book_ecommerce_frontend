@@ -22,6 +22,7 @@ This project is a books ecommerce web application where users can explore a coll
 - TypeScript - Typed superset of JavaScript
 - Vite - Web dev build tool
 - Tailwind CSS - Utility-first CSS framework
+- Context API - For centralized state management
 
 ## Design Choices
 

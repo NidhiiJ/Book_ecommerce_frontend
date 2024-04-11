@@ -1,12 +1,14 @@
-import Book from "../Interfaces/BookInterface";
-// import books from "./Books";
+import { useContext } from "react";
+import BooksContextType from "../Interfaces/BooksContextType";
+import { BooksContext } from "../context/BooksContext";
 
 interface FilterSection {
   handleCategoryChange: any;
-  books: Book[]|[]
+  selectedCategory : string
 }
 
-const FilterSection: React.FC<FilterSection> = ({ handleCategoryChange, books }) => {
+const FilterSection: React.FC<FilterSection> = ({ handleCategoryChange, selectedCategory }) => {
+  const{books} = useContext(BooksContext) as BooksContextType
   // creating a unique filters array
   const filters = [...new Set(books.flatMap(book => book.volumeInfo.categories))];
   return (
@@ -27,6 +29,7 @@ const FilterSection: React.FC<FilterSection> = ({ handleCategoryChange, books })
               value='All'
               onChange={handleCategoryChange}
               className="mr-2"
+              checked={selectedCategory === 'All'}
             />
             All
           </label>
