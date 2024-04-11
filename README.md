@@ -1,5 +1,5 @@
 # Book Ecommerce Website
-  This is a frontend project for an ecommerce website specifically for Books
+  [Visit deployed app](https://book-store-ecommerce.netlify.app/)
 
 ## Table of Contents
 - Project Description

@@ -20,6 +20,16 @@ const FilterSection: React.FC<FilterSection> = ({ handleCategoryChange, books })
           Filter by Category:
         </label>
         <div className="ml-5 flex flex-col gap-2">
+        <label className="flex">
+            <input
+              type="radio"
+              name="category"
+              value='All'
+              onChange={handleCategoryChange}
+              className="mr-2"
+            />
+            All
+          </label>
           {filters.map((x,i)=>
           // checking if x is empty string
           (x && x.replace(/\s/,'').length !== 0 ?
@@ -44,6 +54,7 @@ const FilterSection: React.FC<FilterSection> = ({ handleCategoryChange, books })
           onChange={handleCategoryChange}
           className="w-[40vw] md:w-full border-b-2"
         >
+           <option value='All'>All</option>
           {filters.map((x,i)=>
           x && x.replace(/\s/,'').length !== 0 ?
           <option key={i} value={x}>{x}</option>
