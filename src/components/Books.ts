@@ -1,4 +1,3 @@
-// import { useEffect } from "react"
 import Book from "../Interfaces/BookInterface";
    
 const fetchData= async ()=> {

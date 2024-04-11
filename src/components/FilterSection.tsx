@@ -5,10 +5,11 @@ interface FilterSection {
 }
 
 const FilterSection: React.FC<FilterSection> = ({ handleCategoryChange }) => {
-  // const filters = ['All','Computers', 'Computer programs','Business & Economics' ]
+  // creating a unique filters array
   const filters = [...new Set(books.flatMap(book => book.volumeInfo.categories))];
   return (
     <div className="h-vh w-full">
+      {/* section for filters on display > md */}
       <section id="large-filters" className="hidden md:block">
         <label
           htmlFor="category"
@@ -18,6 +19,7 @@ const FilterSection: React.FC<FilterSection> = ({ handleCategoryChange }) => {
         </label>
         <div className="ml-5 flex flex-col gap-2">
           {filters.map((x,i)=>
+          // checking if x is empty string
           (x && x.replace(/\s/,'').length !== 0 ?
             <label key={i} className="flex">
             <input
@@ -32,6 +34,7 @@ const FilterSection: React.FC<FilterSection> = ({ handleCategoryChange }) => {
           ))}
         </div>
       </section>
+      {/* dropdown filter selection */}
       <section id="small-filters" className="md:hidden">
         <label htmlFor="category" className="text-sm text-slate-500"> Filter by category:</label><br />
         <select

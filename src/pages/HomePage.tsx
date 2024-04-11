@@ -14,7 +14,7 @@ const HomePage = () => {
 
   return (
     <div className="flex flex-col md:flex-row gap-5">
-      <section className="flex flex-row justify-between items-center md:block md:min-w-[20vw] md:max-w-[20vw] md:mt-32">
+      <section className="flex flex-row justify-between items-center md:block md:min-w-[20vw] md:max-w-[20vw] md:mt-16">
         <h1 className="md:hidden">Books</h1>
         <div className="md:ml-5 xl:ml-8">
         <FilterSection

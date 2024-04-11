@@ -7,10 +7,13 @@ import BookCard from "../components/BookCard";
 
 const BookDetails = () => {
   const [showFullDescription, setShowFullDescription] = useState(false);
+  // for description
   const [showLess, setShowLess] = useState(false);
   const [book, setBook] = useState<Book>();
+  // extract id param from router
   let { id } = useParams();
 
+  // set book on mount
   useEffect(() => {
     const findBook = id ? books.find((x) => x.id === +id) : undefined;
     if (findBook) {
@@ -18,6 +21,7 @@ const BookDetails = () => {
     }
   }, [id]);
 
+  // set description based on length
   useEffect(() => {
     book?.volumeInfo.description &&
     book?.volumeInfo.description.split(" ").length > 30
@@ -39,6 +43,7 @@ const BookDetails = () => {
       x.volumeInfo.categories?.includes(categories ? categories[0] : "none")
     )
     .filter((x) => x.id !== book?.id);
+    // only show 7 suggested items
   const suggestedArray =
     filteredArray.length > 7 ? filteredArray.slice(0, 7) : filteredArray;
 
@@ -70,10 +75,12 @@ const BookDetails = () => {
             <p>By {book?.volumeInfo.authors.join(", ")}</p>
           </div>
           <div id="book-ratings">
-            {book?.volumeInfo.averageRating && (
-              <Rating value={+book.volumeInfo.averageRating} />
-            )}
-            <p>Published on {book?.volumeInfo.publishedDate || '\'date not given\''}</p>
+            <Rating value={book?.volumeInfo.averageRating} />
+
+            <p>
+              Published on{" "}
+              {book?.volumeInfo.publishedDate || "'date not given'"}
+            </p>
           </div>
           <div id="book-price" className="text-xl font-medium">
             {book?.saleInfo.listPrice
@@ -94,6 +101,7 @@ const BookDetails = () => {
               </button>
             )}
             <br />
+            {/* show less button */}
             {showLess && book?.volumeInfo.description && (
               <button className={linkClasses} onClick={toggleDescription}>
                 View less
@@ -128,11 +136,18 @@ const BookDetails = () => {
         <h1>Similar Reads</h1>
 
         <div className="flex flex-nowrap overflow-x-auto gap-4">
-          {suggestedArray.length>0 ? suggestedArray.map((book, index) => (
-            <div key={index} className="min-w-[80vw] md:min-w-[43vw] lg:min-w-[20vw]">
-              <BookCard  book={book} />
-            </div>
-          )): <div>No similar items available</div>}
+          {suggestedArray.length > 0 ? (
+            suggestedArray.map((book, index) => (
+              <div
+                key={index}
+                className="min-w-[80vw] md:min-w-[43vw] lg:min-w-[20vw]"
+              >
+                <BookCard book={book} />
+              </div>
+            ))
+          ) : (
+            <div>No similar items available</div>
+          )}
         </div>
       </section>
     </div>
