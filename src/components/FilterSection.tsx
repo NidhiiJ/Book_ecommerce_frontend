@@ -1,10 +1,12 @@
-import books from "./Books";
+import Book from "../Interfaces/BookInterface";
+// import books from "./Books";
 
 interface FilterSection {
   handleCategoryChange: any;
+  books: Book[]|[]
 }
 
-const FilterSection: React.FC<FilterSection> = ({ handleCategoryChange }) => {
+const FilterSection: React.FC<FilterSection> = ({ handleCategoryChange, books }) => {
   // creating a unique filters array
   const filters = [...new Set(books.flatMap(book => book.volumeInfo.categories))];
   return (

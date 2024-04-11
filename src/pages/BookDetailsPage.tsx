@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
-import books from "../components/Books";
+// import books from "../components/Books";
 import Book from "../Interfaces/BookInterface";
 import { Link, useParams } from "react-router-dom";
 import Rating from "../components/Rating";
 import BookCard from "../components/BookCard";
 
-const BookDetails = () => {
+interface BooksDetailsProps{
+  books:Book[]|[]
+}
+const BookDetails:React.FC<BooksDetailsProps> = ({books}) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
   // for description
   const [showLess, setShowLess] = useState(false);

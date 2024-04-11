@@ -1,11 +1,16 @@
 import { ChangeEvent, useState } from "react";
 import BookGallery from "../components/BookGallery";
 import FilterSection from "../components/FilterSection";
-import books from "../components/Books";
+import Book from "../Interfaces/BookInterface";
+// import books from "../components/Books";
 
-const HomePage = () => {
+
+interface HomeProps{
+  books:Book[]|[]
+}
+
+const HomePage:React.FC<HomeProps> = ({books}) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  // console.log(selectedCategory)
 
   const handleCategoryChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setSelectedCategory(e.target.value);
@@ -19,6 +24,7 @@ const HomePage = () => {
         <div className="md:ml-5 xl:ml-8">
         <FilterSection
           handleCategoryChange={handleCategoryChange}
+          books={books}
         />
         </div>
       </section>
