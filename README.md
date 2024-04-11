@@ -1,30 +1,31 @@
-# React + TypeScript + Vite
+# Book Ecommerce Website
+  This is a frontend project for an ecommerce website specifically for Books
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Table of Contents
+- Project Description
+- Features
+- Technologies Used
+- Getting Started
 
-Currently, two official plugins are available:
+# Project Description
+This project is a books ecommerce web application where users can explore a collection of books, filter them by genre, view detailed information about each book, and Buy the Book. The application is designed to be responsive for all screen sizes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Features
+- Browse a collection of books
+- Filter books by genre
+- View detailed information about each book
+- Responsive design for various screens
 
-## Expanding the ESLint configuration
+# Technologies Used
+- React - JavaScript library for building user interfaces
+- TypeScript - Typed superset of JavaScript
+- Vite - Web dev build tool
+- Tailwind CSS - Utility-first CSS framework
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# Getting Started
+To get started with the project, follow these steps:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Clone the repository.
+- Install dependencies with npm install.
+- Run the development server with npm run dev.
+- Open the application in your browser.
